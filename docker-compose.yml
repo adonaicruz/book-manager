@@ -13,9 +13,14 @@ services:
             dockerfile: Dockerfile
         volumes:
             - ./api:/var/www/api
+    composer:
+        image: composer/composer
+        command: install
+        volumes:
+            - ./api:/var/www/api
+        working_dir: /var/www/api
     db:
         image: mariadb:latest
-        container_name: MariaDB
         volumes:
             - ./docker/mariadb:/var/lib/mysql
             - ./docker/mysql.conf:/etc/mysql/my.cnf
