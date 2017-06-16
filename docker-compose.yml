@@ -1,0 +1,29 @@
+version: "2"
+services:
+    web:
+        image: nginx:latest
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./api:/var/www/api
+            - ./docker/site.conf:/etc/nginx/conf.d/site.conf
+    php:
+        build: 
+            context: ./
+            dockerfile: Dockerfile
+        volumes:
+            - ./api:/var/www/api
+    db:
+        image: mariadb:latest
+        container_name: MariaDB
+        volumes:
+            - ./docker/mariadb:/var/lib/mysql
+            - ./docker/mysql.conf:/etc/mysql/my.cnf
+        environment:
+            MYSQL_DATABASE: book
+            MYSQL_USER: book
+            MYSQL_PASSWORD: book
+        expose:
+            - 3306
+        ports:
+            - "3306:3306"
