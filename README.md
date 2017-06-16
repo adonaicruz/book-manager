@@ -9,14 +9,17 @@ Book Catalog Management with RestFul API (PHP7, MySQL, Lumen, Docker, Nginx, Com
 $ git clone https://github.com/adonaicruz/book-manager.git
 $ cd book-manager
 
-# install the composer project's dependencies
-$ cd api
-$ composer install
-
 # start docker
 $ cd ..
 $ docker-compose up
 
+# copy /api/.env.example to /api/.env
+
 # open http://localhost:8000
 
 ```
+### Requires
+	* docker 
+        - https://docs.docker.com/engine/installation/#time-based-release-schedule
+    * docker-compose 
+        - https://docs.docker.com/compose/install/
