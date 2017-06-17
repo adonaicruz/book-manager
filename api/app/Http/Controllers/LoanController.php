@@ -11,7 +11,7 @@ class LoanController extends Controller{
   
   
     public function index(){
-        $Loans  = Loan::all();
+        $Loans  = Loan::with('book')->get();
   
         return response()->json($Loans);
   
@@ -42,6 +42,10 @@ class LoanController extends Controller{
         $row  = Loan::find($id);
         $row->book_id = $request->input('book_id');
         $row->user = $request->input('user');
+        
+        if($row->returned == false && $request->input('returned') == true){
+            $row->returned_date = date_create('now')->format('Y-m-d H:i:s');
+        }
         $row->returned = $request->input('returned');
         $row->save();
   
