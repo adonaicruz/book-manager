@@ -20,10 +20,6 @@
                             <md-option ng-repeat="book in books" value="{{book.id}}">{{book.title}}</md-option>
                         </md-select>
                     </md-input-container>
-
-                    <md-checkbox ng-model="loan.returned" aria-label="Entregue">
-                        Entregue
-                    </md-checkbox>
                     
                     <section layout="row" layout-sm="column" layout-align="end end" layout-wrap>
                         <md-button ng-click="reset()" class="md-raised">Cancelar</md-button>
@@ -37,18 +33,30 @@
             <div>
                
                 <div layout="row" layout-wrap>
-                    <md-card flex="45" ng-repeat="loan in loans">
+                    <md-card flex="30" ng-repeat="loan in loans">
                         <md-card-title>
                             <md-card-title-text>
                                 <span class="md-headline">{{loan.user}}</span>
                                 <span class="md-subhead">
-                                    {{book.book_id}}<br/>
-                                    {{book.returned ? 'Entregue': 'Pendente'}}
-                                </span>
+                                    <strong>Livro:</strong> {{loan.book.title}}<br/>
+                                    <strong>Emprestimo:</strong> {{getDate(loan.created_at) | date:'dd/MM/yyyy h:mma'}}<br/>
+                                    
+                                    <strong>Status:</strong>
+                                    <span style="color: {{loan.returned ? 'green': 'red'}}">
+                                        {{loan.returned ? 'Devolvido': 'Pendente'}}
+                                    </span>
+                                    <div ng-if="loan.returned">
+                                        <strong>Devolvido:</strong> {{getDate(loan.returned_date) | date:'dd/MM/yyyy h:mma'}}<br/>
+                                    </div>
+                                    
                             </md-card-title-text>
                         </md-card-title>
                         <md-card-actions layout="row" layout-align="end center">
                         
+                        <md-button class="md-icon-button" aria-label="Returned">
+                            <i class="material-icons" ng-click="toggleReturned(loan)">{{loan.returned ? 'check_box': 'check_box_outline_blank'}}</i>
+                            
+                        </md-button>
                         <md-button class="md-icon-button" aria-label="Share">
                             <i class="material-icons md-secondary" ng-click="edit(loan)">edit</i>
                         </md-button>

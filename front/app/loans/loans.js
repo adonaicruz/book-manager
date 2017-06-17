@@ -44,11 +44,24 @@ angular.module('app.loans', ['ngRoute'])
   $scope.edit = function(loan){
     $scope.loan = loan;
   }
+
   $scope.delete = function(id){
     LoansFactory.delete(id).then(function(){
         refresh();
     });
   }
 
+  $scope.toggleReturned = function(loan){
+      loan.returned = !loan.returned;
+      LoansFactory.save(loan).then(function(nowLoan){ 
+        loan.returned_date = nowLoan.returned_date;
+      },function(){
+        loan.returned = !loan.returned;
+      }); 
+  }
+
+  $scope.getDate = function(date){
+    return new Date(date);
+  }
   
 });

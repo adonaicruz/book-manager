@@ -22,11 +22,25 @@ $ npm start
 # open http://localhost:8000
 
 ```
+
 ### Requires
 	* docker 
         - https://docs.docker.com/engine/installation/#time-based-release-schedule
     * docker-compose 
         - https://docs.docker.com/compose/install/
+
+### Tests
+```bash
+
+# on /api:
+
+# windows
+$ php vendor/phpunit/phpunit/phpunit
+
+# linux
+$ phpunit
+
+```
 
 ## License
 	This code is available under the [MIT license](http://mths.be/mit).
