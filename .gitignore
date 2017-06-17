@@ -1,2 +1,2 @@
-/docker/mariadb/*
-!/docker/mariadb/book
+#/docker/mariadb/*
+#!/docker/mariadb/book
