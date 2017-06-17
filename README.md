@@ -1,6 +1,11 @@
 # book-manager
 Book Catalog Management with RestFul API (PHP7, MySQL, Lumen, Docker, Nginx, Composer) and Angular 
 
+### Requires
+	* docker 
+        - https://docs.docker.com/engine/installation/#time-based-release-schedule
+    * docker-compose 
+        - https://docs.docker.com/compose/install/
 
 ## Installation
 ### By downloading
@@ -26,12 +31,6 @@ $ npm start
 # open http://localhost:8000
 
 ```
-
-### Requires
-	* docker 
-        - https://docs.docker.com/engine/installation/#time-based-release-schedule
-    * docker-compose 
-        - https://docs.docker.com/compose/install/
 
 ### Tests
 ```bash
