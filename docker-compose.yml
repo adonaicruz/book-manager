@@ -25,6 +25,7 @@ services:
             - ./docker/mariadb:/var/lib/mysql
             - ./docker/mysql.conf:/etc/mysql/my.cnf
         environment:
+            MYSQL_RANDOM_ROOT_PASSWORD: 1
             MYSQL_DATABASE: book
             MYSQL_USER: book
             MYSQL_PASSWORD: book
