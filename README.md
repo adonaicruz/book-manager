@@ -12,9 +12,12 @@ $ cd book-manager
 # start docker
 $ cd ..
 $ docker-compose up
+```
+2. Create you envioment
+`copy /api/.env.example to /api/.env`
 
-# copy /api/.env.example to /api/.env
-
+3. Run AngularJS Front-End Application
+```
 # watches your files and uses livereload by default
 $ cd front
 $ npm start
