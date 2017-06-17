@@ -1,0 +1,68 @@
+
+<div layout="column" ng-cloak class="md-inline-form">
+    <md-content layout-padding>
+    <h1>Empréstimos</h1>
+    <div layout-sm="column" layout-gt-sm="row">
+        <div flex-gt-sm="30">
+            <md-card layout-padding>
+                <form name="loanForm" ng-submit="submitForm(loanForm.$valid,loanForm.$error)" novalidate>
+                    <h2>{{loan.id ? 'Editar' : 'Cadastrar'}}</h2>
+                    
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Amigo</label>
+                        <input ng-model="loan.user" required>
+                    </md-input-container>
+
+                     <md-input-container  class="md-block" flex-gt-sm>
+                        <label>Livro</label>
+                        <md-select ng-model="loan.book_id" style="width: 100%;" required>
+                            <md-option value="">selecione</md-option>
+                            <md-option ng-repeat="book in books" value="{{book.id}}">{{book.title}}</md-option>
+                        </md-select>
+                    </md-input-container>
+
+                    <md-checkbox ng-model="loan.returned" aria-label="Entregue">
+                        Entregue
+                    </md-checkbox>
+                    
+                    <section layout="row" layout-sm="column" layout-align="end end" layout-wrap>
+                        <md-button ng-click="reset()" class="md-raised">Cancelar</md-button>
+                        <md-button type="submit" class="md-raised md-primary">Salvar</md-button>
+                    </section>
+                </form>
+            </md-card>
+        </div>
+        <div flex-gt-sm="70">
+            
+            <div>
+               
+                <div layout="row" layout-wrap>
+                    <md-card flex="45" ng-repeat="loan in loans">
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">{{loan.user}}</span>
+                                <span class="md-subhead">
+                                    {{book.book_id}}<br/>
+                                    {{book.returned ? 'Entregue': 'Pendente'}}
+                                </span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-actions layout="row" layout-align="end center">
+                        
+                        <md-button class="md-icon-button" aria-label="Share">
+                            <i class="material-icons md-secondary" ng-click="edit(loan)">edit</i>
+                        </md-button>
+                        <md-button class="md-icon-button" aria-label="Share">
+                            <i class="material-icons md-secondary" ng-click="delete(loan.id)">delete</i>
+                        </md-button>
+                        </md-card-actions>
+                    </md-card>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+    
+    </md-content>
+</div>
