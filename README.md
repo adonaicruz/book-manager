@@ -13,7 +13,7 @@ $ cd book-manager
 $ cd ..
 $ docker-compose up
 ```
-2. Create you envioment: 
+2. Create your Environment: 
 
 `copy /api/.env.example to /api/.env`
 
