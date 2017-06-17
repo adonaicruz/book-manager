@@ -26,7 +26,6 @@ class BookController extends Controller{
     }
   
     public function createBook(Request $request){
-  
         $Book = Book::create($request->all());
   
         return response()->json($Book);
@@ -44,7 +43,8 @@ class BookController extends Controller{
         $Book  = Book::find($id);
         $Book->title = $request->input('title');
         $Book->author = $request->input('author');
-        $Book->isbn = $request->input('isbn');
+        $Book->image = $request->input('image');
+        $Book->resume = $request->input('resume');
         $Book->save();
   
         return response()->json($Book);

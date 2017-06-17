@@ -15,6 +15,10 @@ $ docker-compose up
 
 # copy /api/.env.example to /api/.env
 
+# watches your files and uses livereload by default
+$ cd front
+$ npm start
+
 # open http://localhost:8000
 
 ```
@@ -23,3 +27,9 @@ $ docker-compose up
         - https://docs.docker.com/engine/installation/#time-based-release-schedule
     * docker-compose 
         - https://docs.docker.com/compose/install/
+
+## License
+	This code is available under the [MIT license](http://mths.be/mit).
+
+## Authors
+    [Adonai Cruz](https://github.com/adonaicruz)

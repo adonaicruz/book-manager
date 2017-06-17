@@ -3,7 +3,7 @@ services:
     web:
         image: nginx:latest
         ports:
-            - "8000:8000"
+            - "8080:8080"
         volumes:
             - ./api:/var/www/api
             - ./docker/site.conf:/etc/nginx/conf.d/site.conf

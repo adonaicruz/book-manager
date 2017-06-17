@@ -18,6 +18,17 @@ $app->get('/', function() use ($app) {
  
 $app->group(['prefix' => 'api/v1'], function($app)
 {
+    $app->get('loan','LoanController@index');
+  
+    $app->get('loan/{id}','LoanController@get');
+      
+    $app->post('loan','LoanController@create');
+      
+    $app->put('loan/{id}','LoanController@update');
+      
+    $app->delete('loan/{id}','LoanController@delete');
+
+
     $app->get('book','BookController@index');
   
     $app->get('book/{id}','BookController@getbook');
